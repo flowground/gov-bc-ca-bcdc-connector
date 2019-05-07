@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "query": {
+            "default": "format:csv",
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "order_by": {
+            "type": "string"
+        },
+        "offset": {
+            "default": 0,
+            "type": "integer"
+        },
+        "limit": {
+            "default": 0,
+            "type": "integer"
+        }
+    }
+}

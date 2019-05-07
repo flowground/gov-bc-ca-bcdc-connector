@@ -1,0 +1,431 @@
+{
+    "title": "BC Data Catalogue",
+    "description": "This API provides live access to the BC Data Catalogue. Further documentation on the API is available from http://docs.ckan.org/en/latest/ Confirm the version of the API available from the catalogue by requesting https://catalogue.data.gov.bc.ca/api/3/action/status_show. \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/gov.bc.ca/bcdc/3.0.1/openapi.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://catalogue.data.gov.bc.ca/api/3 - Production",
+                    "https://cat.data.gov.bc.ca/api/3 - Test",
+                    "https://cad.data.gov.bc.ca/api/3 - Delivery",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "githubAccessCode": {
+                "label": "githubAccessCode",
+                "viewClass": "OAuthFieldView"
+            },
+            "internalApiKey": {
+                "label": "ckan_api_key (internalApiKey)",
+                "viewClass": "TextFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://github.com/login/oauth/authorize",
+            "token_uri": "https://github.com/login/oauth/access_token"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_action_organization_activity_list": {
+            "main": "./lib/actions/get_action_organization_activity_list.js",
+            "title": "Get the activity stream of an organization",
+            "description": "Return an organization's activity stream",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_activity_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_organization_activity_list_html": {
+            "main": "./lib/actions/get_action_organization_activity_list_html.js",
+            "title": "Get the activity stream of an organization, HTML format",
+            "description": "Return an organization's activity stream as HTML",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_activity_list_html.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_organization_autocomplete": {
+            "main": "./lib/actions/get_action_organization_autocomplete.js",
+            "title": "Get names of organizations that match a query string",
+            "description": "Return a list of organization names that contain a string",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_autocomplete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_organization_follower_count": {
+            "main": "./lib/actions/get_action_organization_follower_count.js",
+            "title": "Get number of followers of an organization",
+            "description": "Return the number of followers of an organization",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_follower_count.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_organization_follower_list": {
+            "main": "./lib/actions/get_action_organization_follower_list.js",
+            "title": "Get users following an organization",
+            "description": "Return a list of users that are following a given organization",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_follower_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_organization_list": {
+            "main": "./lib/actions/get_action_organization_list.js",
+            "title": "Get names of all organizations",
+            "description": "Returns the names of all indexed organizations",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_organization_list_for_user": {
+            "main": "./lib/actions/get_action_organization_list_for_user.js",
+            "title": "Get organizations that a user has a given permission for",
+            "description": "Return the organizations that the user has a given permission for",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_list_for_user.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_organization_revision_list": {
+            "main": "./lib/actions/get_action_organization_revision_list.js",
+            "title": "Get organization revisions",
+            "description": "Return an organization's revisions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_revision_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_organization_show": {
+            "main": "./lib/actions/get_action_organization_show.js",
+            "title": "Get details of a specific organization",
+            "description": "Return the details of an organization",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_organization_show.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_package_activity_list": {
+            "main": "./lib/actions/get_action_package_activity_list.js",
+            "title": "Get the activity stream of a package (dataset)",
+            "description": "Returns a package's activity stream",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_package_activity_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_package_activity_list_html": {
+            "main": "./lib/actions/get_action_package_activity_list_html.js",
+            "title": "Get the activity stream of a package (dataset), HTML format",
+            "description": "The activity stream is rendered as a snippet of HTML meant to be included in an HTML pag, i.e it doesn't have any header or footer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_package_activity_list_html.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_package_autocomplete": {
+            "main": "./lib/actions/get_action_package_autocomplete.js",
+            "title": "Find packages (datasets) matching a query",
+            "description": "Return a list of datasets that match a string",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_package_autocomplete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_package_list": {
+            "main": "./lib/actions/get_action_package_list.js",
+            "title": "Get a list of all packages (datasets)",
+            "description": "Returns the names of all indexed packages (datasets)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_package_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_package_relationships_list": {
+            "main": "./lib/actions/get_action_package_relationships_list.js",
+            "title": "Get package (dataset) relationships",
+            "description": "Return a dataset's relationships",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_package_relationships_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_package_revision_list": {
+            "main": "./lib/actions/get_action_package_revision_list.js",
+            "title": "Get list of revisions for a package (dataset)",
+            "description": "Return a dataset's revision as a list of dictionaries",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_package_revision_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_package_search": {
+            "main": "./lib/actions/get_action_package_search.js",
+            "title": "Find packages (datasets) matching query terms",
+            "description": "Searches for packages (datasets) matching the specified query terms",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_package_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_package_show": {
+            "main": "./lib/actions/get_action_package_show.js",
+            "title": "Get metadata about one specific package (dataset)",
+            "description": "Returns metadata about the package (dataset) corresponding to the specified unique name",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_package_show.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_related_list": {
+            "main": "./lib/actions/get_action_related_list.js",
+            "title": "Gets items related to a package (dataset)",
+            "description": "Returns a dataset's related items.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_related_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_resource_search": {
+            "main": "./lib/actions/get_action_resource_search.js",
+            "title": "Find resources",
+            "description": "Returns a dictionary with two fields ``count`` and ``results``.             The ``count`` field contains the total number of Resources                found without the limit or query parameters having an effect.             The ``results`` field is a list of dictized Resource objects.             The query parameter is a required field. It is a string in                the form ``{field}:{term}`` or a list of strings, each of the             same form. Within each string, ``{field}`` is a field or extra             field on the Resource domain object.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_resource_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_resource_show": {
+            "main": "./lib/actions/get_action_resource_show.js",
+            "title": "Get metadata for a specific resource",
+            "description": "Return the metadata of a resource",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_resource_show.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_status_show": {
+            "main": "./lib/actions/get_action_status_show.js",
+            "title": "Get the site status",
+            "description": "Returns the site status",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_status_show.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_action_tag_list": {
+            "main": "./lib/actions/get_action_tag_list.js",
+            "title": "Get a list of tags",
+            "description": "Returns the names of all indexed tags",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_action_tag_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

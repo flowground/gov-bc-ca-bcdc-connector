@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "q": {
+            "default": "\"Okanagan Lake\"",
+            "type": "string"
+        }
+    }
+}

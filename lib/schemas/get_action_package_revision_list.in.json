@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "default": "grizzly-bear-population-units",
+            "type": "string"
+        }
+    }
+}

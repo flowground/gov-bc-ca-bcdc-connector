@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "default": "e6c8bb1d-3726-418b-9b7e-1d97a9bbb817",
+            "type": "string"
+        },
+        "include_tracking": {
+            "default": false,
+            "type": "boolean"
+        }
+    }
+}

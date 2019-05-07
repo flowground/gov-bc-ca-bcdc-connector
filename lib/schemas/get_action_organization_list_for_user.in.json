@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "permission": {
+            "default": "\"edit_group\"",
+            "type": "string"
+        }
+    }
+}

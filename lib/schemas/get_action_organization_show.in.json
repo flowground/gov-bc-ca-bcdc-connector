@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "default": "ministry-of-agriculture",
+            "type": "string"
+        },
+        "include_datasets": {
+            "default": true,
+            "type": "boolean"
+        }
+    }
+}

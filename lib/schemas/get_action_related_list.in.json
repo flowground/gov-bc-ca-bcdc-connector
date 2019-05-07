@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "dataset": {
+            "type": "string"
+        },
+        "type_filter": {
+            "type": "string"
+        },
+        "sort": {
+            "type": "string"
+        },
+        "featured": {
+            "type": "string"
+        }
+    }
+}

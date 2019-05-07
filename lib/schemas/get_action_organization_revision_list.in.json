@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "default": "ministry-of-agriculture",
+            "type": "string"
+        }
+    }
+}

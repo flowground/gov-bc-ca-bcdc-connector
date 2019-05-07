@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "default": "grizzly-bear-population-units",
+            "type": "string"
+        },
+        "offset": {
+            "default": 0,
+            "type": "integer"
+        },
+        "limit": {
+            "default": 31,
+            "type": "integer"
+        }
+    }
+}

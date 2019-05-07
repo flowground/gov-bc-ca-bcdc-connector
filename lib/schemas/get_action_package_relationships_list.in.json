@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "default": "grizzly-bear-population-units",
+            "type": "string"
+        },
+        "id2": {
+            "default": "important-fossil-areas",
+            "type": "string"
+        },
+        "rel": {
+            "type": "string"
+        }
+    }
+}

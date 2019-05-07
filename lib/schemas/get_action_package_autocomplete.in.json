@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "q": {
+            "default": "\"Okanagan Lake\"",
+            "type": "string"
+        },
+        "limit": {
+            "default": 10,
+            "type": "integer"
+        }
+    }
+}

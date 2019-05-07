@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "q": {
+            "default": "ministry",
+            "type": "string"
+        },
+        "limit": {
+            "default": 20,
+            "type": "integer"
+        }
+    }
+}
